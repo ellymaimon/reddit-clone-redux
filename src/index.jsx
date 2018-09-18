@@ -4,10 +4,10 @@ import App from './components/App'
 import { AppContainer } from "react-hot-loader";
 import { HashRouter } from 'react-router-dom';
 import { createStore } from "redux";
-// import ticketListReducer from './reducers/ticket-list-reducer';
+import postListReducer from './reducers/post-list-reducer';
 import { Provider } from "react-redux";
 
-// const store = createStore(ticketListReducer);
+const store = createStore(postListReducer);
 
 // let unsubscribe = store.subscribe(() =>
 //   console.log(store.getState())
@@ -16,7 +16,7 @@ import { Provider } from "react-redux";
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>
-      <Provider>
+      <Provider store={store} >
        <Component />
       </Provider>
     </HashRouter>,
